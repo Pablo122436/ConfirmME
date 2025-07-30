@@ -4,6 +4,10 @@ using ConfirmMe.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure for Railway deployment
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -32,11 +36,12 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
-    app.UseHttpsRedirection();
+    // Remove HTTPS redirection for Railway deployment
 }
 else
 {
     app.UseDeveloperExceptionPage();
+    app.UseHttpsRedirection();
 }
 
 app.UseStaticFiles();

@@ -1,0 +1,13 @@
+[build]
+  builder = "NIXPACKS"
+
+[deploy]
+  startCommand = "dotnet out/ConfirmMe.dll"
+  healthcheckPath = "/"
+  healthcheckTimeout = 100
+  restartPolicyType = "ON_FAILURE"
+  restartPolicyMaxRetries = 10
+
+[variables]
+  ASPNETCORE_ENVIRONMENT = "Production"
+  DOTNET_ROOT = "/root/.dotnet"

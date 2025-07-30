@@ -18,6 +18,26 @@ Um sistema completo de confirmação de presença para eventos desenvolvido em A
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 - **UI**: Design responsivo com CSS Grid/Flexbox
 
+## 🚂 Deploy no Railway
+
+Este projeto está configurado para deployment automático no Railway. Siga estes passos:
+
+1. **Fork/Clone** este repositório
+2. **Conecte** ao Railway em [railway.app](https://railway.app)
+3. **Crie um novo projeto** e conecte ao seu repositório
+4. **Adicione um banco PostgreSQL** no Railway
+5. **Configure a variável de ambiente**:
+   - `ConnectionStrings__DefaultConnection`: String de conexão do PostgreSQL
+
+### Arquivos de Configuração para Railway:
+- `nixpacks.toml`: Configuração do build system
+- `railway.toml`: Configuração específica do Railway
+- `railway.json`: Configuração de deploy
+- `global.json`: Especifica a versão do .NET
+- `Dockerfile`: Configuração alternativa para container
+
+O projeto será buildado automaticamente usando NIXPACKS e estará disponível em alguns minutos!
+
 ## 📋 Pré-requisitos
 
 - .NET 8.0 SDK
