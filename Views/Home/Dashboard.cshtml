@@ -1,0 +1,66 @@
+@{
+    ViewData["Title"] = "Painel de Confirmações";
+}
+    <div class="container dashboard">
+        <header class="header">
+            <h1 class="title">Painel de Confirmações</h1>
+            <p class="subtitle">Resumo das respostas recebidas</p>
+            <div class="copy-link-container">
+                <label for="page-link">🔗 Link da página de confirmação</label>
+                <div class="link-input-group">
+                    <input type="text" id="page-link" value="http://localhost:5000/" readonly class="link-input">
+                    <button type="button" id="copy-link-btn" class="btn primary copy-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
+                        Copiar
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="stats-container">
+                <div class="stat-card confirmed">
+                    <h3>Confirmados</h3>
+                    <p id="confirmed-count">0</p>
+                </div>
+                <div class="stat-card declined">
+                    <h3>Não confirmados</h3>
+                    <p id="declined-count">0</p>
+                </div>
+                <div class="stat-card total">
+                    <h3>Total de convidados</h3>
+                    <p id="total-count">0</p>
+                </div>
+                <div class="stat-card attending">
+                    <h3>Total de pessoas presentes</h3>
+                    <p id="total-attending-count">0</p>
+                </div>
+            </div>
+
+            <div class="guests-list">
+                <h2>Lista de Convidados</h2>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="confirmed">Confirmados</button>
+                    <button class="filter-btn" data-filter="declined">Não confirmados</button>
+                </div>
+                <div id="guests-table" class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Status</th>
+                                <th>Acompanhantes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="guests-tbody">
+                            <!-- Guests will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
