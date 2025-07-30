@@ -3,8 +3,8 @@ dotnet = "8.0"
 
 [phases.build]
 cmds = [
-  'dotnet restore --no-cache',
-  'dotnet publish -c Release -o out --no-restore'
+  'dotnet restore',
+  'dotnet publish -c Release -o out'
 ]
 
 [start]
@@ -13,4 +13,3 @@ cmd = 'dotnet out/ConfirmMe.dll'
 [variables]
 ASPNETCORE_ENVIRONMENT = 'Production'
 ASPNETCORE_URLS = 'http://0.0.0.0:$PORT'
-DOTNET_URLS = 'http://0.0.0.0:$PORT'

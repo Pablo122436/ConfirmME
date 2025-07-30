@@ -9,17 +9,17 @@ WORKDIR /src
 
 # Copy the project file and restore dependencies
 COPY ["ConfirmMe.csproj", "./"]
-RUN dotnet restore "ConfirmMe.csproj" --no-cache
+RUN dotnet restore "ConfirmMe.csproj"
 
 # Copy the rest of the application files
 COPY . .
 
 # Build the application
-RUN dotnet build "ConfirmMe.csproj" -c Release -o /app/build --no-restore
+RUN dotnet build "ConfirmMe.csproj" -c Release -o /app/build
 
 # Publish the application
 FROM build AS publish
-RUN dotnet publish "ConfirmMe.csproj" -c Release -o /app/publish /p:UseAppHost=false --no-restore
+RUN dotnet publish "ConfirmMe.csproj" -c Release -o /app/publish
 
 # Final stage
 FROM base AS final
